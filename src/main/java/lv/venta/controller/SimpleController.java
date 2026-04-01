@@ -5,6 +5,10 @@ import java.util.Random;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import lv.venta.model.Product;
+import lv.venta.model.ProductType;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -24,8 +28,16 @@ public class SimpleController {
 		Random rand = new Random();
 		String data = "@Janis " + rand.nextInt(2000, 2026);
 		model.addAttribute("package", data);
-		return "show-data-page";//tiks paradita show-tdata-page.html lapa
+		return "show-data-page";//tiks paradita show-data-page.html lapa
 		
+	}
+	
+	@GetMapping("/product")//localhost:8080/simple/product
+	public String getProductInPage(Model model) {
+		System.out.println("Izpildas produkta kontrolieris");
+		Product prod = new Product("Abols", 1, "1kg abols liels", 10, ProductType.fruit);
+		model.addAttribute("package", prod);
+		return "show-one-product-page";//tiks paradita show-one-product-page.html lapa
 	}
 	
 }
