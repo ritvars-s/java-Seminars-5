@@ -1,5 +1,6 @@
 package lv.venta.controller;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.springframework.stereotype.Controller;
@@ -38,6 +39,18 @@ public class SimpleController {
 		Product prod = new Product("Abols", 1, "1kg abols liels", 10, ProductType.fruit);
 		model.addAttribute("package", prod);
 		return "show-one-product-page";//tiks paradita show-one-product-page.html lapa
+	}
+	
+	@GetMapping("/products")//localhost:8080/simple/products
+	public String getProductsInPage(Model model) {
+		System.out.println("Izpildas produktu kontrolieris");
+		ArrayList<Product> allProducts = new ArrayList<Product>();
+		Product prod = new Product("Abols", 1, "1kg abols liels", 10, ProductType.fruit);
+		Product prod1 = new Product("Bumbieris", 2, "1kg bumbieris liels", 30, ProductType.fruit);
+		allProducts.add(prod1);
+		allProducts.add(prod);
+		model.addAttribute("package", allProducts);
+		return "show-many-product-page";//tiks paradita show-many-product-page.html lapa
 	}
 	
 }
