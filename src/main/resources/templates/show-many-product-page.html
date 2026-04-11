@@ -2,14 +2,20 @@
 	
 	<body>
 		
-		<h1>Produkti no Javas puses</h1>
+		<h1>Visi produkti mana veikala. Dati no Javas puses:</h1>
+		<table style="width:100%; border-collapse:collapse; font-family:Arial, sans-serif;">
+			<tr th:each="tempP : ${package}">
+			
+				<td th:text="${tempP.id}"></td>
+				<td th:text="${tempP.price}"></td>
+				<td th:text="${tempP.description}"></td>
+				<td th:text="${tempP.quantity}"></td>
+				<td th:text="${tempP.productType}"></td>
+			
+			</tr>
+		</table>
 		
-		<p th:text="${package.id}"></p>
-		<p th:text="${package.productName}"></p>
-		<p th:text="${package.price}"></p>
-		<p th:text="${package.description}"></p>
-		<p th:text="${package.quantity}"></p>
-		<p th:text="${package.productType}"></p>
+		
 	
 		
 	</body>

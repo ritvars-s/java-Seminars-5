@@ -1,5 +1,12 @@
 package lv.venta.model;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,15 +16,24 @@ import lombok.ToString;
 //@Setter
 //@NoArgsConstructor
 //@ToString
+@Table(name = "ProductTable")
+@Entity
 public class Product {
+	@Column(name = "Id")
+	@Id //ka primara atslega
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Column(name = "ProductName")
 	private String productName;
+	@Column(name = "Price")
 	private double price;
+	@Column(name = "Description")
 	private String description;
+	@Column(name = "Quantity")
 	private int quantity;
+	@Column(name = "ProductType")
 	private ProductType productType;
 	
-	private static long counter = 0;
 	
 	
 	
@@ -46,10 +62,6 @@ public class Product {
 		return productType;
 	}
 
-	public void setId() {
-		id= counter;
-		counter++;
-	}
 
 	public void setProductName(String productName) {
 		this.productName = productName;
@@ -76,9 +88,15 @@ public class Product {
 		setProductName(newProductName);
 		setPrice(newPrice);
 		setDescription(newDescription);
-		setId();
 		setQuantity(newQuantity);
-		setProductName(newProductName);
+		setProductType(newProductType);
+	}
+	public Product() {
+		setProductName("a");
+		setPrice(0);
+		setDescription("d");
+		setQuantity(0);
+		setProductType(ProductType.fruit);
 	}
 
 	@Override

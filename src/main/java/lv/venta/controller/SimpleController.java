@@ -11,6 +11,9 @@ import lv.venta.model.Product;
 import lv.venta.model.ProductType;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -46,11 +49,36 @@ public class SimpleController {
 		System.out.println("Izpildas produktu kontrolieris");
 		ArrayList<Product> allProducts = new ArrayList<Product>();
 		Product prod = new Product("Abols", 1, "1kg abols liels", 10, ProductType.fruit);
-		Product prod1 = new Product("Bumbieris", 2, "1kg bumbieris liels", 30, ProductType.fruit);
+		Product prod1 = new Product("Bumbieris", 0.99, "1kg bumbieris liels", 30, ProductType.fruit);
 		allProducts.add(prod1);
 		allProducts.add(prod);
 		model.addAttribute("package", allProducts);
 		return "show-many-product-page";//tiks paradita show-many-product-page.html lapa
 	}
 	
+	@GetMapping("/add")//localhost:8080/simple/add
+	public String getAddNewProduct(Model model) {
+		model.addAttribute("product", new Product());
+		return "add-new-product-page"; //add-new-product-page.html
+	}
+	@PostMapping("/add")
+	public String postAddNewProduct(Product product) {
+		//TODO veic datu parbaudi un saglabasanu
+		
+		System.out.println(product);
+		return "redirect:/simple/page";
+	}
+	@GetMapping("/update")//localhost:8080/simple/update
+	public String getUpdateProduct(Model model) {
+		Product prod = new Product("Abols", 1, "1kg abols liels", 10, ProductType.fruit);
+		model.addAttribute("product", prod);
+		return "update-product-page"; //update-product-page.html
+	}
+	@PostMapping("/update")
+	public String postUpdateProduct(Product product) {
+		//TODO veic datu parbaudi un saglabasanu regetajam produktam
+		
+		System.out.println(product);
+		return "redirect:/simple/page";
+	}
 }
