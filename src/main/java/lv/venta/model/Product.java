@@ -7,6 +7,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,15 +28,29 @@ public class Product {
 	@Id //ka primara atslega
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
 	@Column(name = "ProductName")
+	@NotNull
+	@NotEmpty
+	@Pattern(regexp = "[A-Z]{1}[a-z ]{2,30}")
 	private String productName;
+	
 	@Column(name = "Price")
+	@Min(0)
+	@Max(1000)
 	private double price;
+	
 	@Column(name = "Description")
+	@NotNull
 	private String description;
+	
 	@Column(name = "Quantity")
+	@Min(0)
+	@Max(10000)
 	private int quantity;
+	
 	@Column(name = "ProductType")
+	@NotNull
 	private ProductType productType;
 	
 	
