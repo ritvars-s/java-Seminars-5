@@ -62,7 +62,7 @@ public class ProductCRUDServiceImpl implements IProductCRUDService{
 	public void updatebyID(long id, String newProductName, double newPrice, String newDescription, int newQuantity, ProductType newProductType) throws Exception {
 		Product prod = retrieveByID(id);
 		if (newProductName == null || !newProductName.matches("[A-Z]{1}[a-z ]{2,30}") || newPrice < 0 || newPrice > 1000 || newQuantity < 0 || newQuantity > 10000 || newDescription == null || newProductType == null) {
-			throw new Exception("Kads no argumeniem nav atbilsetos");
+			throw new Exception("Kads no argumeniem nav atbilstos");
 		}
 		prod.setProductName(newProductName);
 		prod.setPrice(newPrice);
