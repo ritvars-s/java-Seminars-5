@@ -6,22 +6,27 @@
 			<tr>
 				<td>Nosaukums: </td>
 				<td> <input type=text th:field="*{productName}"></input></td>
+				<td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"> </td>
 			</tr>
 			<tr>
 				<td>Cena: </td>
 				<td> <input type=text th:field="*{price}"></input></td>
+				<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}"> </td>
 			</tr>
 			<tr>
 				<td>Apraksts: </td>
 				<td> <input type=text th:field="*{description}"></input></td>
+				<td th:if="${#fields.hasErrors('description')}" th:errors="*{description}"> </td>
 			</tr>
 			<tr>
 				<td>Daudzums: </td>
 				<td> <input type=text th:field="*{quantity}"></input></td>
+				<td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"> </td>
 			</tr>
 			<tr>
 				<td>Tips: </td>
 				<td> <input type=text th:field="*{productType}"></input></td>
+				<td th:if="${#fields.hasErrors('productType')}" th:errors="*{productType}"> </td>
 			</tr>
 		
 		
