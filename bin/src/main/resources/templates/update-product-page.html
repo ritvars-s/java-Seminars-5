@@ -1,7 +1,7 @@
 <html html xmlns:th="http://www.thymeleaf.org">
 	<body>
-		<h1>Ludzu ievadi datus par produktu</h1>
-		<form method="post" th:object="${product}" th:action="@{/product/crud/add}">
+		<h1>Ludzu rediģē datus par produktu</h1>
+		<form method="post" th:object="${product}" th:action="@{/simple/update}">
 		<table>
 			<tr>
 				<td>Nosaukums: </td>
@@ -27,7 +27,7 @@
 		
 		
 		</table>	
-		<button type="submit">Saglabāt </button>
+		<button type="submit">Saglabāt imaiņas </button>
 		</form>
 		
 		
