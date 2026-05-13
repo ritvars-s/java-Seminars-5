@@ -37,7 +37,7 @@ public class ProductCRUDServiceImpl implements IProductCRUDService{
 	}
 
 	@Override
-	public ArrayList<Product> retriveAll() throws Exception {
+	public ArrayList<Product> retrieveAll() throws Exception {
 		if (prodRepo.count() == 0) {
 			throw new Exception("produktu tabula DB ir tuksa");
 		}

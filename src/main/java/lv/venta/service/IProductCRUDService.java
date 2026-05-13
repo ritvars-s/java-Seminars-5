@@ -12,7 +12,7 @@ public interface IProductCRUDService {
 	public abstract void create(String newProductName, double newPrice, String newDescription, int newQuantity, ProductType newProductType) throws Exception;
 	
 	// R -retrive all
-	public abstract ArrayList<Product> retriveAll() throws Exception;
+	public abstract ArrayList<Product> retrieveAll() throws Exception;
 	
 	// R -retrive by id
 	public abstract Product retrieveByID(long id) throws Exception;

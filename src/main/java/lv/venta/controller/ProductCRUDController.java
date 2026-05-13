@@ -23,7 +23,7 @@ public class ProductCRUDController {
 	@GetMapping("/all")//localhost:8080/product/crud/all
 	public String getAllProducts(Model model) {
 		try {
-			model.addAttribute("package", prodService.retriveAll());
+			model.addAttribute("package", prodService.retrieveAll());
 			return "show-all-products-page";//tiks paradit show-all-products.html lapa
 		}
 		catch(Exception e){
@@ -110,7 +110,7 @@ public class ProductCRUDController {
 	public String getDeleteProductById(@PathVariable(name = "id") long id, Model model) {
 		try {
 			prodService.deleteByID(id);
-			model.addAttribute("package", prodService.retriveAll());
+			model.addAttribute("package", prodService.retrieveAll());
 			return "show-all-products-page";
 		}
 		
